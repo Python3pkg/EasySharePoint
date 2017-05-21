@@ -53,9 +53,9 @@ class SharePointConnector:
             headers=headers["GET"]
         )
         print("Get all list.")
-        print("GET: {}".format(get.status_code))
+        print(("GET: {}".format(get.status_code)))
         if get.status_code not in self.success_list:
-            print(get.content)
+            print((get.content))
         else:
             return get.json()["d"]["results"]
 
@@ -105,10 +105,10 @@ class SharePointConnector:
             headers=headers["POST"],
             data=json.dumps(data)
         )
-        print("Create new list - {}.".format(list_name))
-        print("POST: {}".format(post.status_code))
+        print(("Create new list - {}.".format(list_name)))
+        print(("POST: {}".format(post.status_code)))
         if post.status_code not in self.success_list:
-            print(post.content)
+            print((post.content))
 
     def create_new_list_field(self, list_name, data=None, field_name="new_field", field_type=2):
         """
@@ -192,10 +192,10 @@ class SharePointConnector:
             headers=headers["POST"],
             data=json.dumps(data)
         )
-        print("Create new list header of name {} and type {} for {}.".format(field_name, field_type, list_name))
-        print("POST: {}".format(post.status_code))
+        print(("Create new list header of name {} and type {} for {}.".format(field_name, field_type, list_name)))
+        print(("POST: {}".format(post.status_code)))
         if post.status_code not in self.success_list:
-            print(post.content)
+            print((post.content))
 
     def update_list(self, list_guid, data=None):
         """
@@ -212,10 +212,10 @@ class SharePointConnector:
             headers=headers["PUT"],
             data=json.dumps(data),
         )
-        print("Update list name for list of GUID: {}".format(list_guid))
-        print("PUT: {}".format(put.status_code))
+        print(("Update list name for list of GUID: {}".format(list_guid)))
+        print(("PUT: {}".format(put.status_code)))
         if put.status_code not in self.success_list:
-            print(put.content)
+            print((put.content))
 
     def delete_list(self, list_guid):
         """
@@ -229,10 +229,10 @@ class SharePointConnector:
             self.base_url + "_api/web/lists(guid'{}')".format(list_guid),
             headers=headers["DELETE"]
         )
-        print("Delete list of GUID: {}".format(list_guid))
-        print("DELETE: {}".format(delete.status_code))
+        print(("Delete list of GUID: {}".format(list_guid)))
+        print(("DELETE: {}".format(delete.status_code)))
         if delete.status_code not in self.success_list:
-            print(delete.content)
+            print((delete.content))
 
     def get_all_list_views(self, list_guid):
         """
@@ -245,9 +245,9 @@ class SharePointConnector:
             headers=headers["GET"]
         )
         print("Get all list.")
-        print("GET: {}".format(get.status_code))
+        print(("GET: {}".format(get.status_code)))
         if get.status_code not in self.success_list:
-            print(get.content)
+            print((get.content))
         else:
             return get.json()["d"]["results"]
 
@@ -269,10 +269,10 @@ class SharePointConnector:
             ),
             headers=headers["POST"]
         )
-        print("Add {} field to the view.".format(field_name))
-        print("POST: {}".format(post.status_code))
+        print(("Add {} field to the view.".format(field_name)))
+        print(("POST: {}".format(post.status_code)))
         if post.status_code not in self.success_list:
-            print(post.content)
+            print((post.content))
         else:
             return post.json()["d"]
 
@@ -298,10 +298,10 @@ class SharePointConnector:
             headers=headers["POST"],
             data=json.dumps(data)
         )
-        print("Moved {} field to the index {}.".format(field_name, field_index))
-        print("POST: {}".format(post.status_code))
+        print(("Moved {} field to the index {}.".format(field_name, field_index)))
+        print(("POST: {}".format(post.status_code)))
         if post.status_code not in self.success_list:
-            print(post.content)
+            print((post.content))
         else:
             return post.json()["d"]
 
@@ -324,10 +324,10 @@ class SharePointConnector:
             ),
             headers=headers["DELETE"]
         )
-        print("Remove {} field to the view.".format(field_name))
-        print("POST: {}".format(post.status_code))
+        print(("Remove {} field to the view.".format(field_name)))
+        print(("POST: {}".format(post.status_code)))
         if post.status_code not in self.success_list:
-            print(post.content)
+            print((post.content))
         else:
             return post.json()["d"]
 
@@ -342,10 +342,10 @@ class SharePointConnector:
             self.base_url + "_api/web/lists/GetByTitle('{}')".format(list_name) + "/items?$top=5000",
             headers=headers["GET"]
         )
-        print("Get list items from {}.".format(list_name))
-        print("GET: {}".format(get.status_code))
+        print(("Get list items from {}.".format(list_name)))
+        print(("GET: {}".format(get.status_code)))
         if get.status_code not in self.success_list:
-            print(get.content)
+            print((get.content))
         else:
             return get.json()["d"]["results"]
 
@@ -366,9 +366,9 @@ class SharePointConnector:
             headers=headers["DELETE"]
         )
         print("Remove all fields from the view.")
-        print("POST: {}".format(post.status_code))
+        print(("POST: {}".format(post.status_code)))
         if post.status_code not in self.success_list:
-            print(post.content)
+            print((post.content))
         else:
             return post.json()["d"]
 
@@ -393,10 +393,10 @@ class SharePointConnector:
             data=json.dumps(data),
             headers=headers["POST"]
         )
-        print("Create new list item in {}.".format(list_name))
-        print("POST: {}".format(post.status_code))
+        print(("Create new list item in {}.".format(list_name)))
+        print(("POST: {}".format(post.status_code)))
         if post.status_code not in self.success_list:
-            print(post.content)
+            print((post.content))
 
     def update_list_item(self, list_name, item_id=0, data=None):
         """
@@ -413,10 +413,10 @@ class SharePointConnector:
             data=json.dumps(data),
             headers=headers["PUT"]
         )
-        print("Update list item of id {} in {}.".format(item_id, list_name))
-        print("PUT: {}".format(put.status_code))
+        print(("Update list item of id {} in {}.".format(item_id, list_name)))
+        print(("PUT: {}".format(put.status_code)))
         if put.status_code not in self.success_list:
-            print(put.content)
+            print((put.content))
 
     def delete_list_item(self, list_name, item_id=0):
         """
@@ -431,10 +431,10 @@ class SharePointConnector:
             self.base_url + "_api/web/lists/GetByTitle('{}')".format(list_name) + "/items('{}')".format(item_id),
             headers=headers["DELETE"]
         )
-        print("Delete list item of id {} in {}.".format(item_id, list_name))
-        print("DELETE: {}".format(delete.status_code))
+        print(("Delete list item of id {} in {}.".format(item_id, list_name)))
+        print(("DELETE: {}".format(delete.status_code)))
         if delete.status_code not in self.success_list:
-            print(delete.content)
+            print((delete.content))
 
     # Add functions related to document libraries and lists attachments
     def get_folder_information(self, folder_name):
@@ -448,10 +448,10 @@ class SharePointConnector:
             self.base_url + "_api/web/GetFolderByServerRelativeUrl('/{}')".format(folder_name),
             headers=headers["GET"]
         )
-        print("Get information for {} folder.".format(folder_name))
-        print("GET: {}".format(get.status_code))
+        print(("Get information for {} folder.".format(folder_name)))
+        print(("GET: {}".format(get.status_code)))
         if get.status_code not in self.success_list:
-            print(get.content)
+            print((get.content))
         else:
             return get.json()["d"]
 
@@ -472,10 +472,10 @@ class SharePointConnector:
             ),
             headers=headers["GET"]
         )
-        print("Get {} from {}.".format(file_name, destination_library))
-        print("GET: {}".format(get.status_code))
+        print(("Get {} from {}.".format(file_name, destination_library)))
+        print(("GET: {}".format(get.status_code)))
         if get.status_code not in self.success_list:
-            print(get.content)
+            print((get.content))
         else:
             return get.content
 
@@ -492,10 +492,10 @@ class SharePointConnector:
             ),
             headers=headers["GET"]
         )
-        print("Get all files from {}.".format(folder_name))
-        print("GET: {}".format(get.status_code))
+        print(("Get all files from {}.".format(folder_name)))
+        print(("GET: {}".format(get.status_code)))
         if get.status_code not in self.success_list:
-            print(get.content)
+            print((get.content))
         else:
             return get.json()["d"]["results"]
 
@@ -519,15 +519,15 @@ class SharePointConnector:
             data=file_as_bytes,
             headers=headers["POST"]
         )
-        print(
+        print((
             "Add file '{}' to library '{}'.".format(
                 os.path.basename(file.name),
                 destination_library
             )
-        )
-        print("POST: {}".format(post.status_code))
+        ))
+        print(("POST: {}".format(post.status_code)))
         if post.status_code not in self.success_list:
-            print(post.content)
+            print((post.content))
         else:
             return post.json()["d"]
 
@@ -551,15 +551,15 @@ class SharePointConnector:
                 data=file_as_bytes
             )
         )
-        print(
+        print((
             "Update file '{}' in library '{}'.".format(
                 os.path.basename(file.name),
                 destination_library
             )
-        )
-        print("PUT: {}".format(put.status_code))
+        ))
+        print(("PUT: {}".format(put.status_code)))
         if put.status_code not in self.success_list:
-            print(put.content)
+            print((put.content))
         else:
             return put.json()["d"]
 
@@ -579,15 +579,15 @@ class SharePointConnector:
             ),
             headers=headers["POST"]
         )
-        print(
+        print((
             "CheckOut file '{}' in library '{}'.".format(
                 os.path.basename(file_name),
                 destination_library
             )
-        )
-        print("POST: {}".format(post.status_code))
+        ))
+        print(("POST: {}".format(post.status_code)))
         if post.status_code not in self.success_list:
-            print(post.content)
+            print((post.content))
         else:
             return post.json()["d"]
 
@@ -612,16 +612,16 @@ class SharePointConnector:
             ),
             headers=headers["POST"]
         )
-        print(
+        print((
             "CheckIn file '{}' in library '{}' with comment '{}'.".format(
                 os.path.basename(file_name),
                 destination_library,
                 comment
             )
-        )
-        print("POST: {}".format(post.status_code))
+        ))
+        print(("POST: {}".format(post.status_code)))
         if post.status_code not in self.success_list:
-            print(post.content)
+            print((post.content))
         else:
             return post.json()["d"]
 
@@ -641,16 +641,16 @@ class SharePointConnector:
             ),
             headers=headers["DELETE"]
         )
-        print(
+        print((
             "Delete file '{}' from library '{}'.".format(
                 os.path.basename(file_name),
                 destination_library
             )
-        )
+        ))
 
-        print("POST: {}".format(delete.status_code))
+        print(("POST: {}".format(delete.status_code)))
         if delete.status_code not in self.success_list:
-            print(delete.content)
+            print((delete.content))
         else:
             return delete.json()["d"]
 
@@ -669,10 +669,10 @@ class SharePointConnector:
             ),
             headers=headers["GET"]
         )
-        print("Get attachments for item ID: {} from {} list.".format(list_name, item_id))
-        print("GET: {}".format(get.status_code))
+        print(("Get attachments for item ID: {} from {} list.".format(list_name, item_id)))
+        print(("GET: {}".format(get.status_code)))
         if get.status_code not in self.success_list:
-            print(get.content)
+            print((get.content))
         else:
             return get.json()["d"]["results"]
 
@@ -693,10 +693,10 @@ class SharePointConnector:
             ),
             headers=headers["GET"]
         )
-        print("Get {} for item ID: {} from {} list.".format(file_name, list_name, item_id))
-        print("GET: {}".format(get.status_code))
+        print(("Get {} for item ID: {} from {} list.".format(file_name, list_name, item_id)))
+        print(("GET: {}".format(get.status_code)))
         if get.status_code not in self.success_list:
-            print(get.content)
+            print((get.content))
         else:
             return get.json()["d"]["results"]
 
@@ -722,16 +722,16 @@ class SharePointConnector:
             headers=headers["POST"],
             data=file_to_bites
         )
-        print(
+        print((
             "Add file '{}' to list item '{}' in {}.".format(
                 os.path.basename(file.name),
                 item_id,
                 list_name
             )
-        )
-        print("POST: {}".format(post.status_code))
+        ))
+        print(("POST: {}".format(post.status_code)))
         if post.status_code not in self.success_list:
-            print(post.content)
+            print((post.content))
         else:
             return post.json()["d"]
 
@@ -757,16 +757,16 @@ class SharePointConnector:
             headers=headers["POST"],
             data=file_to_bites
         )
-        print(
+        print((
             "Update file '{}' for list item '{}' in {}.".format(
                 os.path.basename(file.name),
                 item_id,
                 list_name
             )
-        )
-        print("PUT: {}".format(put.status_code))
+        ))
+        print(("PUT: {}".format(put.status_code)))
         if put.status_code not in self.success_list:
-            print(put.content)
+            print((put.content))
         else:
             return put.json()["d"]
 
@@ -784,9 +784,9 @@ class SharePointConnector:
                 self.base_url + query,
                 headers=headers["GET"]
             )
-            print("GET: {}".format(get.status_code))
+            print(("GET: {}".format(get.status_code)))
             if get.status_code not in self.success_list:
-                print(get.content)
+                print((get.content))
             else:
                 return get.json()["d"]
         elif request_type == "POST":
@@ -800,7 +800,7 @@ class SharePointConnector:
                     data=json.dumps(data)
                 )
                 if post.status_code not in self.success_list:
-                    print(post.content)
+                    print((post.content))
                 else:
                     return post.json()["d"]
         elif request_type == "PUT":
@@ -814,7 +814,7 @@ class SharePointConnector:
                     data=json.dumps(data)
                 )
                 if post.status_code not in self.success_list:
-                    print(post.content)
+                    print((post.content))
                 else:
                     return post.json()["d"]
         elif request_type == "DELETE":
@@ -827,7 +827,7 @@ class SharePointConnector:
                     headers=headers["DELETE"],
                 )
                 if post.status_code not in self.success_list:
-                    print(post.content)
+                    print((post.content))
                 else:
                     return post.json()["d"]
         else:
@@ -870,7 +870,7 @@ class SharePointDataParser:
                 'type': self.list_item_meta(list_name)
             },
         }
-        for key, value in data.items():
+        for key, value in list(data.items()):
             output_data[key] = value
         return output_data
 
@@ -884,7 +884,7 @@ class SharePointDataParser:
             'BaseTemplate': base_template,
             'ContentTypesEnabled': content_types_enabled
         }
-        for key, value in data.items():
+        for key, value in list(data.items()):
             output_data[key] = value
         return output_data
 
@@ -895,7 +895,7 @@ class SharePointDataParser:
                 'type': 'SP.Folder'
             },
         }
-        for key, value in data.items():
+        for key, value in list(data.items()):
             output_data[key] = value
         return output_data
 
